@@ -14,5 +14,10 @@ variable "argocd_secret_manager_name_suffix" {
 variable "cluster_name" {
   description = "Name of the EKS Cluster"
   type        = string
-  default     = "eks-amazon-fsx-netapp1"
+  default     = "eks-fsx-cluster"
+}
+
+variable "fsx_name" {
+  default     = "eks-fsx-cluster"
+  description = "default fsx name"
 }
