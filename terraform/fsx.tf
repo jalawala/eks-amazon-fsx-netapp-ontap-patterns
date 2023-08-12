@@ -21,13 +21,13 @@ resource "aws_fsx_ontap_file_system" "eksfs" {
   fsx_admin_password = random_string.fsx_password.result
   route_table_ids    = module.vpc.private_route_table_ids
   tags = {
-    Name = var.fsxame
+    Name = var.fsx_name
   }
 }
 
 resource "aws_fsx_ontap_storage_virtual_machine" "ekssvm" {
   file_system_id = aws_fsx_ontap_file_system.eksfs.id
-  name           = "ekssvm1"
+  name           = var.fsx_name
 }
 
 resource "aws_security_group" "fsx_sg" {

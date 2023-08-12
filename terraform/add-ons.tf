@@ -14,10 +14,10 @@ module "kubernetes_addons" {
   source = "aws-ia/eks-blueprints-addons/aws"
   version = "~> 1.5.0"
 
-  cluster_name      = module.eks_cluster.cluster_name
-  cluster_endpoint  = module.eks_cluster.cluster_endpoint
-  cluster_version   = module.eks_cluster.cluster_version
-  oidc_provider_arn = module.eks_cluster.oidc_provider_arn
+  cluster_name      = module.eks.cluster_name
+  cluster_endpoint  = module.eks.cluster_endpoint
+  cluster_version   = module.eks.cluster_version
+  oidc_provider_arn = module.eks.oidc_provider_arn
 
   eks_addons = {
     aws-ebs-csi-driver = {
