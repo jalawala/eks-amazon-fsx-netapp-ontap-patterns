@@ -218,6 +218,9 @@ pvc-d1f1b3bc-45db-43c1-a77f-d03a63e444c6   50Gi       RWX            Delete     
 ```
 
 
-## Usecase2: Sharing Volume between Windows Application on EC2 and EKS Application
+## Usecase2: Sharing Volume between EKS Clusters
+TBD
+
+## Usecase3: Sharing Volume between Windows Application on EC2 and EKS Application
 
 TBD
