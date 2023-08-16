@@ -1,0 +1,14 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: secondary-pvc
+  namespace: secondary  
+  annotations:
+    trident.netapp.io/shareFromPVC: primary/primary-pvc
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 50Gi
+  storageClassName: fsx-basic-block-ontap-nas

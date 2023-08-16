@@ -1,0 +1,8 @@
+apiVersion: trident.netapp.io/v1
+kind: TridentVolumeReference
+metadata:
+  name: tvr-in-secondary
+  namespace: secondary
+spec:
+  pvcName: primary-pvc
+  pvcNamespace: primary
