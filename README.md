@@ -1,5 +1,9 @@
 # eks-amazon-fsx-netapp-ontap-patterns
 
+## Deploy EKS Terraform Blueprints
+
+This will deploy EKS and Trident Controller
+
 clone the repo
 
 ```bash
@@ -86,6 +90,8 @@ trident-node-linux-whzmk             2/2     Running   0          33m
 trident-operator-6b57b8997c-lqc79    1/1     Running   0          33m
 ```
 
+## Deploy External Snapshotter controller
+
 ```bash
 cd <working_dir>
 git clone https://github.com/kubernetes-csi/external-snapshotter
@@ -124,9 +130,9 @@ clusterrolebinding.rbac.authorization.k8s.io/csi-snapshotter-role created
 service/csi-snapshotter created
 statefulset.apps/csi-snapshotter created
 
-
 ```
 
+## Usecase1: Sharing Volume across the Namespaces in Kubernetes Cluster
 
 ```bash
 
@@ -212,23 +218,6 @@ pvc-d1f1b3bc-45db-43c1-a77f-d03a63e444c6   50Gi       RWX            Delete     
 ```
 
 
+## Usecase2: Sharing Volume between Windows Application on EC2 and EKS Application
 
-test
-
-```bash
-```
-
-test
-
-```bash
-```
-
-test
-
-```bash
-```
-
-test
-
-```bash
-```
+TBD
