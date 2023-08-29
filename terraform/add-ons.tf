@@ -19,6 +19,8 @@ module "kubernetes_addons" {
   cluster_version   = module.eks.cluster_version
   oidc_provider_arn = module.eks.oidc_provider_arn
 
+  enable_cert_manager                    = true
+  
   eks_addons = {
     aws-ebs-csi-driver = {
       most_recent = true
@@ -32,13 +34,13 @@ module "kubernetes_addons" {
     kube-proxy = {
       most_recent = true
     }
+    adot = {
+      most_recent = true
+    }    
   }
-  
-  #---------------------------------------------------------------
-  # ARGO CD ADD-ON
-  #---------------------------------------------------------------
 
-  #enable_argocd         = true
-
+  enable_aws_load_balancer_controller    = true
+  enable_metrics_server                  = true
+  #enable_amazon_eks_adot              = true
 
 }

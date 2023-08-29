@@ -62,6 +62,11 @@ module "eks" {
     ami_type               = "AL2_x86_64"
     instance_types         = ["t3.medium"]
     vpc_security_group_ids = [aws_security_group.all_worker_mgmt.id]
+      additional_iam_policies = [
+        "arn:aws:iam::aws:policy/AWSXrayWriteOnlyAccess",
+        "arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy",
+        "arn:aws:iam::aws:policy/AmazonPrometheusRemoteWriteAccess"
+      ]    
   }
 
   eks_managed_node_groups = {
@@ -74,6 +79,11 @@ module "eks" {
       enable_bootstrap_user_data = true
 
       pre_bootstrap_user_data = data.cloudinit_config.cloudinit_iscsi.rendered
+      additional_iam_policies = [
+        "arn:aws:iam::aws:policy/AWSXrayWriteOnlyAccess",
+        "arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy",
+        "arn:aws:iam::aws:policy/AmazonPrometheusRemoteWriteAccess"
+      ]      
     },
     
     fsx_nas_group = {
@@ -84,6 +94,11 @@ module "eks" {
       enable_bootstrap_user_data = true
 
       pre_bootstrap_user_data = data.cloudinit_config.cloudinit_nfs.rendered
+      additional_iam_policies = [
+        "arn:aws:iam::aws:policy/AWSXrayWriteOnlyAccess",
+        "arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy",
+        "arn:aws:iam::aws:policy/AmazonPrometheusRemoteWriteAccess"
+      ]      
     }
         
   }
